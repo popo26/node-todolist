@@ -1,0 +1,133 @@
+<%- include("header") -%>
+
+    <header>
+        <h1> <%= listTitle%></h1>
+    </header>
+    
+
+    <!-- <div >
+        <div class="calendar">
+            <div class="calendar-container">
+                <% for(let month = 0;month < calendar.length;month++) { %>
+        
+                <div class="month-container" id="<%= months[month] %>">
+                    <h3 style="text-align: center;"> <%= months[month] %> </h3>
+        <br>
+        
+                    <div class="day-of-week">
+                        <span>Sun</span><span>Mon</span><span>Tue</span><span>
+                            Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                    </div>
+                    <% for(let x = 0;x < calendar[month].length;x++) { %>
+                    <div class="days">
+                        <% for(let y = 0;y < calendar[month][x].length;y++) { %>
+        
+                        <div class="date">
+                            <div id="<%=calendar[month][x][y] %>">
+                                <%= calendar[month][x][y] %>
+                            </div>
+                        </div>
+                       
+                        
+        
+                        <% } %>
+                    </div>
+                    <% } %>
+                </div>
+        
+                <% } %>
+            </div>
+        </div> -->
+
+        <div>
+            <form action="/" method="get">
+                <input type="text" placeholder="search year" name="year">
+                <button type="submit">🔍</button>
+
+                
+                <select name="selectpicker" id="Select1" class="selectpicker" >
+                <optgroup label="Select Month">
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+                </optgroup>
+                  </select>
+                <button type="submit">🔍</button>
+            </form>
+    
+            <h2>Year <%= year %></h2>
+            <!-- <h2>Month <%= mon %></h2> -->
+        </div>
+
+        <div >
+            <div class="calendar">
+                <div class="calendar-container">
+                    <% for(let month = 0;month < calendar.length;month++) { %>
+                        <% if (mon === months[month]) {%>
+                          
+                         
+            
+                    <div class="month-container" id="<%= months[month] %>">
+                        <h3 class="month-title"> <%= months[month] %> </h3>
+                        
+            <br>
+            
+                        <div class="day-of-week">
+                            <span>Sun</span><span>Mon</span><span>Tue</span><span>
+                                Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                        </div>
+                        <% for(let x = 0;x < calendar[month].length;x++) { %>
+                        <div class="days">
+                            <% for(let y = 0;y < calendar[month][x].length;y++) { %>
+            
+                            <div class="date">
+                                <div id="<%=calendar[month][x][y] %>">
+                                    <%= calendar[month][x][y]  %>
+                                   
+                                    
+                                </div>
+                            </div>
+                           
+                            <% } %>
+                        </div>
+                        <% } %>
+                    </div>
+            
+                    <% } %>
+                </div>
+                <% } %>
+            </div>
+    
+<div class="todo-form">
+        <form action="/", method="post">
+            <textarea type="text" name="newItem" placeholder="Add new todo" autocomplete="off" rows="3" cols="60" ></textarea>
+            <button type="submit" name="list" value=<%= listTitle %>>+</button>
+        </form>
+
+    </div>
+    
+        <% for (var i=0; i<newListItems.length; i++) { %>
+            <div class="item">
+                <input type="checkbox">
+                <p><%= newListItems[i]%></p>
+                </div>
+            
+            <% } %>
+
+
+          
+        </div>
+
+        
+
+        <%- include("footer") -%> 
+    
